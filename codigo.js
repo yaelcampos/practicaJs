@@ -732,4 +732,17 @@ subtitulo.classList.replace("sarasa","grade")
 
 //<------------------Obtencion y modificacion de elementos------->
 //Muestra el contenido del h1 en esta caso
+document.write("<br>")
+
 document.write(subtitulo.textContent)
+
+//<------------Creacion de elementos-------->
+const contenedor = document.querySelector(".contenedor")
+
+const item = document.createElement("LI")
+const textDelItem = document.createTextNode("Este es un elemento de la lista")
+
+item.appendChild(textDelItem)
+
+contenedor.appendChild(item)
+console.log(item)
