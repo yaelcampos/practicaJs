@@ -739,10 +739,29 @@ document.write(subtitulo.textContent)
 //<------------Creacion de elementos-------->
 const contenedor = document.querySelector(".contenedor")
 
-const item = document.createElement("LI")
-const textDelItem = document.createTextNode("Este es un elemento de la lista")
+const fragmento = document.createDocumentFragment();
 
-item.appendChild(textDelItem)
+for ( i = 0; i < 10; i++) {
+  
+    const item = document.createElement("LI")
+    item.innerHTML = "Este es un elemento de la lista";
 
-contenedor.appendChild(item)
-console.log(item)
+    fragmento.appendChild(item)
+}
+
+contenedor.appendChild(fragmento)
+
+//<--------------Obtencion y modificacion de hijos--------->
+const padre = document.querySelector(".padre")
+
+// accedemos al primer hijo
+const primerHijo = padre.firstElementChild
+
+//accedemos al ultimo hijo
+const ultimoHijo = padre.lastElementChild
+
+document.write("<br>");
+console.log(primerHijo);
+
+document.write("<br>");
+console.log(ultimoHijo);
