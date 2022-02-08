@@ -492,8 +492,10 @@ numeros.sort();
 document.write(numeros + "<br>")
 
 //Agrega y elimina
+document.write("ACA ESTA EL SPLICE")
 numeros.splice(0,0,"7","10");
 document.write(numeros)
+document.write("<br>")
 
 //une con lo que le pongamos y crea una nueva cadena de texto
 document.write(nombres + "<br>");
@@ -765,3 +767,72 @@ console.log(primerHijo);
 
 document.write("<br>");
 console.log(ultimoHijo);
+
+//acceder a los nodulos hijos
+const hijos = padre.childNodes;
+
+hijos.forEach(hijos => console.log(hijos))
+//console.log(hijos)
+
+const hijitos = padre.children;
+
+for(hijo of hijos){
+    console.log(hijo)
+}
+
+//firstChild
+//firstElementChild
+//lastElementChild
+//childNodes
+//children
+
+//<-------------Metodos de Child(hijos)-------------->
+//replaceChild
+//removeChild
+//hasChildNodes
+
+//<---------------Propiedades de parents (Padres)---------->
+//parentElement: elemento padre
+//parentNode : nodolu padre
+
+
+
+//<----------------Propiedades de siblings (hermanos)------------>
+//nextSiblings: muestra lo que le sigue al elemento
+document.write("<br>");
+document.write("<br> ELEMENTOS HERMANOS");
+
+//Selecciono la clase del elemento que quiero, en este caso me muestra que el elemento que le sigue
+//es un text
+console.log(padre.previousSibling)
+
+console.log(padre.nextElementSibling)
+
+
+//previousSibling
+//nextElementSibling
+//previousElementSibling
+
+//<-------------------Ejercicio DOM cofla------------>
+function crearLlave(nombre, modelo ,precio) {
+    img = "<img src=`llave.png`>";
+    nombre = `<h2>${nombre} </h2> `;
+    modelo = `<h3>${modelo} </h3> `;
+    precio = `<p>Precio<b>${precio} </b></p> `;
+    return [img,nombre,modelo,precio];
+}
+
+let DocumentFragment = document.createDocumentFragment();
+
+for(var i = 0; i < 10 ; i++){
+    let modeloRandom = Math.random()*10000;
+    let precioRandom = Math.random()*10+30;
+    let llave = crearLlave(`llave ${i}`,`modelo ${modeloRandom}`,precioRandom)
+    let div = document.createElement("DIV");
+    div.classList.add(`item-${i}`,'flex-item');
+    div.innerHTML = llave[0] + llave[1] + llave[2] +  llave[3]
+    contenedor.innerHTML += llave;
+    documentFragment.appendChild(div);
+}
+
+ccontenedor.appendChild(DocumentFragment);
